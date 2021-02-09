@@ -1,4 +1,3 @@
-import queue
 """
   :)
 *ENQUANTO HOUVER VERTICES NA FILA

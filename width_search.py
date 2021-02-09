@@ -30,7 +30,8 @@ def bfs(graph,findItem) :
       else: 
         visited.add(v)
         for x in graph[y] :
-          fila.put(x)
+            if x != 0 :
+              fila.put(x)
         y += 1
  
 #chamar a bfs 

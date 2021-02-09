@@ -21,6 +21,7 @@ def bfs(graph,findItem) :
   fila = Queue()
   visited = set()
   start,y = graph[0][1],0
+  countSon = 0
   fila.put(start)
   while len(fila) != 0 :
      v = fila.get()
@@ -29,10 +30,13 @@ def bfs(graph,findItem) :
       if v == findItem : return "number of visiteds before find {}".format(len(visited)) 
       else: 
         visited.add(v)
-        for x in graph[y] :
-            if x != 0 :
-              fila.put(x)
-        y += 1
+        countSon -= 1
+        if countSon == 0 :
+          for x in graph[y] :
+            if x != 0  and not x in visited:
+                fila.put(x)
+                countSon += 1 
+          y += 1
  
 #chamar a bfs 
 

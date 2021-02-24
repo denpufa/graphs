@@ -1,3 +1,4 @@
+from math import sqrt
 vertices = 0
 grafo = 0
 
@@ -58,6 +59,19 @@ def carregarTudoDeArquivo():
   for line in arquivo_aberto.readlines() :
     if line_count == 0 :
       vertice = line[0]
+      numeros = line[1:].split()
+      grafo = [[0]*sqrt(numeros) for x in range(sqrt(numeros))]
+      i = 0
+      for x in sqrt(numeros):
+        for y in sqrt(numeros):
+          grafo[x][y] = numeros[i]
+          i += 1
+      line_count += 1
+    if line_count == 2:
+      presiso_pegar4 = [int(x) for x in line.split()]
+
+
+
       
   
 
@@ -68,7 +82,7 @@ grafoTeste2 = [[0,1,2,3,4],[1,0,2,3,4],[2,2,0,3,4],[3,3,3,0,4],[4,4,3,4,0]]
 presiso_pegar2 = [1,5,3]
 grafoTeste3 = [[0,3],[3,0]]
 presiso_pegar3 = [0,1] 
-
+presiso_pegar4 = []
 
 print("Escolha o caso de teste entre os 3 possives e veja os valores de entrada deles")
 print("Caso 1 Digite 1")
@@ -90,6 +104,8 @@ elif caso == '3' :
   melhorCaminho(1,presiso_pegar3)
 elif caso == '4':
   carregarTudoDeArquivo()
+  print("dados de entrada",grafo,presiso_pegar4)
+  melhorCaminho(0,presiso_pegar4)
 else:  
   print("caso de teste não encontrado")
 
